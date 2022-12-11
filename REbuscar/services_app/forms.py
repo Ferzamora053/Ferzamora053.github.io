@@ -21,6 +21,7 @@ class NewServiceForm(forms.ModelForm):
             'pickup_locs',
             'certificate'
         ]
+        
         labels = {
             'user': 'Nombre de usuario',
             'name': 'Nombre del servicio',
@@ -31,5 +32,5 @@ class NewServiceForm(forms.ModelForm):
             'description': 'Descripción de su servicio',
             'page_url': 'Url de la página (opcional)',
             'pickup_locs': 'Lugares de recogida',
-            'certificate': 'Certificado especial'
+            'certificate': 'Certificado de Registro de Personas Certificadas'
         }
