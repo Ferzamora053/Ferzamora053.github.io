@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load bolsillo_extra_tags %}
+{% load humanize %}
+{% load mathfilters %}
+
+{% block content %}
+<br>
+<div>
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="card">
+                <div class="card-header"><strong>TOTAL</strong></div>
+                {% get_presupuesto as presupuesto_total %}
+                {% get_gasto as gasto_total %}
+                <div class="card-body" style="font-size: small; font-weight: 300;">
+                    Presupuesto: <div class="float-end">$ {{ presupuesto_total|intcomma }}</div>
+                    <br>
+                    <br>
+                    Ejecuciones: <div class="float-end">$ {{ gasto_total|intcomma }}</div>
+                    <br>
+                    <br>
+                    <hr>
+                    <br>
+                    Restante: <div class="float-end">$ {{ presupuesto_total|sub:gasto_total|intcomma }}</div>
+                </div>
+            </div>
+            <br>
+        </div>
+        <div class="col-lg-3">
+            {% for tipo in tipos %}
+            {% get_presupuesto tipo.tipo as presupuesto %}
+            {% get_gasto tipo.tipo as gasto %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card sm">
+                        <div class="card-header"><strong>{{ tipo.tipo }}</strong></div>
+                        <div class="card-body">
+                            Presupuesto: <div class="float-end">$ {{ presupuesto|intcomma }}</div>
+                            <br>
+                            Ejecuciones: <div class="float-end">$ {{ gasto|intcomma }}</div>
+                            <hr>
+                            Restante: <div class="float-end">$ {{ presupuesto|sub:gasto|intcomma }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<div id="header">
+    <div id="branding">
+        <h1 id="site-name">
+            <a href={% url 'home' %}><img class="float-center" src="{% static "img/valle-maule-m.png" %}" alt="" height=35px; style="margin-top: -15px;margin-bottom:-10px;">&ensp;PresupuestoVM</a>
+        </h1>
+    </div>
+    <div id="user-tools">
+        Bienvenido <strong>{{ user.username }}</strong>. {% if user.is_staff %}<a href="/admin/">admin</a>{% endif %} / <a href="{% url 'change_password' %}">cambiar contraseña</a> / <a href="{% url "logout" %}">cerrar sesión</a>
+    </div>
+</div>

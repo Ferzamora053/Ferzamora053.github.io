@@ -1,0 +1,79 @@
+{% extends 'services_app/layout.html' %}
+{% load static %}
+{% block content %}
+   <section class="page-section bg-light pt-5" id="portfolio">
+      <div class="container px-5">
+         <div class="text-center pt-2 pb-2">
+            <h2 class="section-heading text-uppercase">Servicios Oficiales</h2>
+         </div>
+         <div class="row pb-2">
+            {% for service in services %}
+               <div class="col-lg-4 col-sm-6 mb-4">
+                  <div class="portfolio-item">
+                     <a class="portfolio-link" data-bs-toggle="modal" href="#porfolioModal{{ service.id }}">
+                        <div class="portfolio-hover">
+                           <div class="portfolio-hover-content">
+                              <i class="fas fa-plus fa-3x"></i>
+                           </div>
+                        </div>
+                        <img class="img-fluid" src="{{ service.logo.url }}" alt="" />
+                     </a>
+                     <div class="portfolio-caption text-center">
+                        <div class="portfolio-caption-heading">
+                           {{ service.name }}
+                        </div>
+                        <div class="portfolio-caption-subheading text-muted">
+                           {{ service.description }}
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            {% endfor %}
+         </div>
+      </div>
+   </section>
+   {% for service in services %}
+      <div class="portfolio-modal modal fade" id="porfolioModal{{ service.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="close-modal" data-bs-dismiss="modal">
+                  <img src="{% static 'services_app/images/x-icon2.png' %}" alt="Close modal">
+               </div>
+               <div class="container">
+                  <div class="row justify-content-center">
+                     <div class="col-lg-8">
+                        <div class="modal-body">
+                           <h2 class="text-uppercase"> {{ service.name }} </h2>
+                           <p class="item-intro text-muted"> mini description</p>
+                           <img class="img-fluid d-block mx-auto" src="{{ service.logo.url }}" alt="">
+                           <p>{{ service.description }}</p>
+                           <ul class="list-inline">
+                              <li>
+                                 <strong>Nombre:</strong>
+                                 {{ service.name }}
+                              </li>
+                              <li>
+                                 <strong>Fono:</strong>
+                                 {{ service.phone }}
+                              </li>
+                              <li>
+                                 <strong>Email:</strong>
+                                 {{ service.email }}
+                              </li>
+                              <li>
+                                 <a class="text-decoration-none" href="{{ service.page_url }}" target="_blank">Visita la página</a>
+                              </li>
+                           </ul>
+                           <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                              <i class="fas fa-xmark me-1"></i>
+                              Close
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   {% endfor %}
+{% endblock content %}

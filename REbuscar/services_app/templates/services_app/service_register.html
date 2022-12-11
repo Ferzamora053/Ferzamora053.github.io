@@ -1,0 +1,19 @@
+{% extends 'services_app/layout.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+	<div class="container px-5">
+		<div class="content-section">
+			<form method="POST">
+				{% csrf_token %}
+				<fieldset class="form-group">
+					<legend class="border-bottom mb-2">Join Today</legend>
+					</div>
+					{{ form|crispy }}
+				</fieldset>
+				<div class="form-group">
+					<button class="btn btn-outline-info" type="submit">Registra el servicio</button>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock content %}

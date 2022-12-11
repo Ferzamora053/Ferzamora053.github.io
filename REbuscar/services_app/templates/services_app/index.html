@@ -1,0 +1,68 @@
+{% extends 'services_app/layout.html' %}
+{% load static %}
+{% block content %}
+    <body class="d-flex flex-column">
+        <main class="flex-shrink-0">
+            <!-- Header-->
+            <header class="bg-light py-4 pt-5">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div class="col-lg-8 col-xl-7 col-xxl-6">
+                            <div class="my-5 text-center text-xl-start">
+                                <h1 class="display-5 fw-bolder text-black mb-2">Facilitamos tu búsqueda de servicios de reciclaje.</h1>
+                                <p class="lead fw-normal text-black-50 mb-4">
+                                    REbuscar es un portal web en donde puedes encontrar todos los servicios de reciclaje que cuentan con el certificado especial. Puedes encontrar servicios ya establecidos o servicios locales inscritos en esta página.
+                                </p>
+                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Como registrar un servicio.</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="{% static 'services_app/images/foto 1.jpg' %}" alt="..." /></div>
+                    </div>
+                </div>
+            </header>
+            <!-- Features section-->
+            <section class="py-5" id="features">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5">
+                        <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">Pasos a seguir</h2></div>
+                        <div class="col-lg-8">
+                            <div class="row gx-5 row-cols-1 row-cols-md-2">
+                                <div class="col mb-5 h-100">
+                                    <h2 class="h5">Paso 1</h2>
+                                    <p class="mb-0">Registrate en nuestra página.</p>
+                                </div>
+                                <div class="col mb-5 h-100">
+                                    <h2 class="h5">Paso 2</h2>
+                                    <p class="mb-0">Inicia sesión y registra tu servicio. Recuerda que es necesario el certificado especial.</p>
+                                </div>
+                                <div class="col mb-5 mb-md-0 h-100">
+                                    <h2 class="h5">Paso 3</h2>
+                                    <p class="mb-0">Espera nuestra verficación</p>
+                                </div>
+                                <div class="col h-100">
+                                    <h2 class="h5">Paso 4</h2>
+                                    <p class="mb-0">Listo! Ahora podrás ver tu servicio en la sección de servicios locales.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg-light py-5">
+                <div class="container px-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-xxl-6">
+                            <div class="text-center my-5">
+                                <h1 class="fw-bolder mb-3">Nuestra misión es visibilizar a los servicios de reciclaje.</h1>
+                                <p class="lead fw-normal text-muted mb-4">
+                                    REbuscar se basó en la idea de que los servicios de reciclaje ya establecidos o locales deberían estar en una misma plataforma disponible para todos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+{% endblock content %}
